@@ -5,8 +5,11 @@ import Button from "@/components/Button";
 export const Header = () => {
   return (
     <header className="py-4 text-white border-b border-white/20 md:border-none sticky top-0 z-10 ">
+
+      <div className="absolute inset-0 backdrop-blur -z-10 md:hidden"></div>
+
       <div className="container">
-        <div className="flex items-center justify-between md:border border-white/20 md:p-2.5 rounded-xl max-w-2xl mx-auto backdrop-blur">
+        <div className="flex items-center justify-between md:border border-white/20 md:p-2.5 rounded-xl max-w-2xl mx-auto md:backdrop-blur">
           {/* logo */}
           <div className="border-2 border-white/20 p-2 rounded-lg ">
             <LogoIcon className="size-8" />
