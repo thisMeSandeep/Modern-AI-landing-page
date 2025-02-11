@@ -1,8 +1,11 @@
+"use client";
+
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
 import avatar3 from "@/assets/avatar-3.png";
 import avatar4 from "@/assets/avatar-4.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -43,9 +46,18 @@ export const Testimonials = () => {
           strategies.
         </p>
 
-        <div className="overflow-hidden mt-10 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%)]">
-          <div className="flex gap-5">
-            {testimonials.map((item, index) => (
+        <div className=" flex overflow-hidden mt-10 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%)]">
+          <motion.div
+            className="flex gap-5 pr-5 flex-none"
+            initial={{ translateX: "-50%" }}
+            animate={{ translateX: "0" }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 30,
+            }}
+          >
+            {[...testimonials, ...testimonials].map((item, index) => (
               <div
                 key={index}
                 className="max-w-xs  md:max-w-md flex-none p-6 md:p-10 rounded-xl border border-white/15 bg-[linear-gradient(to_bottom_left,rgb(148,69,255,0.3),black)]"
@@ -66,7 +78,7 @@ export const Testimonials = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
